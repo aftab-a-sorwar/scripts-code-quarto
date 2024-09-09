@@ -8,24 +8,27 @@ output: html_document
 
 Instructions: Once you have finished this assignment, render the document (Ctrl/Cmd-Shift-K or the Render button). Commit the qmd file and any other files you have changed to the repository and push your changes.
 
-In Canvas, submit a link to your github repository containing the updated files. 
+In Canvas, submit a link to your github repository containing the updated files.
 
-Note: Submitting your link in Canvas lets me know that you are ready for me to grade your homework. You can commit half-finished or not-working homework to GitHub, and it is good practice to commit frequently (at least at the end of each work session). 
+Note: Submitting your link in Canvas lets me know that you are ready for me to grade your homework. You can commit half-finished or not-working homework to GitHub, and it is good practice to commit frequently (at least at the end of each work session).
 
 # Modes of Execution
 
 Consider the 6 counting words examples in the [textbook module](https://srvanderplas.github.io/stat-computing-r-python/part-tools/04-scripts-notebooks.html#a-short-history-of-talking-to-computers) (they are in 3 separate 'your turn' sections). Look at the code, and then at the information provided for each example. What is different? What is the same? Write 2-3 sentences describing how script mode, interactive mode, and command-line mode differ in R and Python.
 
----
+------------------------------------------------------------------------
 
-Replace this line of text with your 2-3 sentences about script-mode, interactive mode, and command-line mode in R and Python
+**Script mode** is perfect for larger projects since it lets you write code and save it in files for later execution.\
+\
+For testing and debugging, **interactive mode** allows you to run code in a Read-Eval-Print Loop (REPL) line by line.\
+\
+Scripts can be executed straight from the terminal or command prompt in **command-line mode**, which is helpful for automation and batch processing.
 
----
-
+------------------------------------------------------------------------
 
 # Programming with Variables
 
-In this section, you'll demonstrate that you understand how to solve simple math problems using code. First, you'll want to define variables to represent the variables in the equation. Give the variables values that can be used to determine the value of the variable on the other side of the `=`. Then, write code to solve the equation for the value of the variable. 
+In this section, you'll demonstrate that you understand how to solve simple math problems using code. First, you'll want to define variables to represent the variables in the equation. Give the variables values that can be used to determine the value of the variable on the other side of the `=`. Then, write code to solve the equation for the value of the variable.
 
 ## Pythagorean Theorem in R
 
@@ -35,6 +38,10 @@ Use the chunk below to define variables $a$, $b$, and $c$, where you define the 
 
 ```{r pythagorean-theorem-r}
 # Your pythagorean theorem code goes here
+a= 4
+b= 3
+c=sqrt(a^2+b^2)
+c
 
 ```
 
@@ -42,11 +49,18 @@ Use the chunk below to define variables $a$, $b$, and $c$, where you define the 
 
 $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 
-Use the chunk below to define variables $a$, $b$, and $c$, and then define $x1$ and $x2$, the possible values for $x$. You may find it helpful to define a few additional variables, such as the value of the discriminant $\sqrt{b^2 - 4ac}$, to make it easier to calculate the results. 
+Use the chunk below to define variables $a$, $b$, and $c$, and then define $x1$ and $x2$, the possible values for $x$. You may find it helpful to define a few additional variables, such as the value of the discriminant $\sqrt{b^2 - 4ac}$, to make it easier to calculate the results.
 
-```{python quad-formula-py}
+```{python quad-formula-p}
 # Your quadratic formula code goes here
-
+import math
+a=5
+b=2
+c=-7
+x1=round((-b+math.sqrt(b^2-4*a*c))/(2*a),2)
+x2=round((-b-math.sqrt(b^2-4*a*c))/(2*a),2)
+x1;x2
+print("the solution of the quadratic formula is x1=",x1," and","x2=",x2)
 ```
 
 # Debugging practice
@@ -65,7 +79,7 @@ salary <- read.table("02-data.tsv", sep = "\t", header = T)
 
 # This code plots labels for each individual at location (x, y)
 library(ggplot2)
-ggplot(salary, aes(x = Hire.Year, y = Salary, label = Name)) + 
+ggplot(salary, aes(x = Hire.Year, y = Salary,label = Name)) + 
   geom_label()
 
 # This displays the salary object
@@ -80,5 +94,15 @@ Here is how I solved the problem:
 
 ```{r cleaning-the-data-r}
 # Your implementation code goes here
+
+salary <- read.table("02-data.tsv", sep = "\t", header = T)
+salary[1,2]=67872
+# This code plots labels for each individual at location (x, y)
+library(ggplot2)
+ggplot(salary, aes(x = Hire.Year, y = Salary,label = Name)) + 
+  geom_label()
+
+# This displays the salary object
+salary
 
 ```
